@@ -3,17 +3,17 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: List of changed files
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Get changed files
         uses: ./ # Uses an action in the root directory
-        id: hello
+        id: files
         with:
-          who-to-greet: 'Mona the Octocat'
+          token: ${{ secrets.GITHUB_TOKEN }}
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Print changed files
+        run: echo "changed files are ${{ steps.files.outputs.all }}"

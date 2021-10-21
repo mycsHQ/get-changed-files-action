@@ -1,13 +1,13 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Get changed files'
+description: 'List the changed files for the commits impacted by the workflow run'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  token:  # id of input
+    description: 'The Github token to access api'
     required: true
-    default: 'World'
+    default: ''
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  all: # id of output
+    description: 'All the changed files'
 runs:
   using: 'node12'
   main: 'index.js'
