@@ -8,7 +8,7 @@ async function run() {
     const repo = github.context.repo
     const files = new Map();
     let commitIDs = [];
-    console.log(JSON.stringify(out, undefined, 2))
+    console.log(JSON.stringify(github.context, undefined, 2))
     for (const c of github.context.payload.commits) {
       commitIDs.push(c.id)
       const {data: commit}  = await octokit.rest.repos.getCommit({ 
