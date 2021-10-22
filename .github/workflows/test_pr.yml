@@ -1,0 +1,19 @@
+on: [pull_request]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: List of changed files
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Get changed files
+        uses: ./ # Uses an action in the root directory
+        id: files
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      # Use the output from the `hello` step
+      - name: Print changed files
+        run: echo "changed files are ${{ steps.files.outputs.all }}"
