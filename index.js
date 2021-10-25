@@ -45,11 +45,7 @@ async function run() {
 }
 
 function getCommitsFromPush() {
-  let commitIDs = [];
-  for (const c of github.context.payload.commits) {
-    commitIDs.push(c.id);
-  }
-  return commitIDs;
+  return github.context.payload.commits.map(c => c.id);
 }
 
 async function getCommitsFromPullRequest(octokit) {
@@ -58,7 +54,6 @@ async function getCommitsFromPullRequest(octokit) {
     repo: github.context.repo.repo,
     pull_number: github.context.payload.number
   })
-  console.log(JSON.stringify(commits, undefined, 2));
   return commits.map(c => c.sha)
 }
 
