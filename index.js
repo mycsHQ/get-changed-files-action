@@ -36,9 +36,9 @@ async function run() {
       out[k] = values;
       core.setOutput(k, values);
     }
-    console.log("Commits: ",  commitIDs);
-    console.log("Output: ");
-    console.log(JSON.stringify(out, undefined, 2));
+    core.debug("Commits: ",  commitIDs);
+    core.debug("Output: ");
+    core.debug(JSON.stringify(out, undefined, 2));
   } catch (error) {
     core.setFailed(error.message);
   }
