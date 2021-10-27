@@ -1,4 +1,4 @@
-# get-changed-files
+# get-changed-files-action
 
 This action gets the changed file for a given action run event.
 It is only using github API, not the git command line.
