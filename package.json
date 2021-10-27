@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jcuvillier/get-changed-files-action.git"
+    "url": "git+https://github.com/mycsHQ/get-changed-files-action.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jcuvillier/get-changed-files-action/issues"
+    "url": "https://github.com/mycsHQ/get-changed-files-action/issues"
   },
-  "homepage": "https://github.com/jcuvillier/get-changed-files-action#readme",
+  "homepage": "https://github.com/mycsHQ/get-changed-files-action#readme",
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0"
