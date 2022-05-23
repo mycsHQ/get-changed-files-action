@@ -16,7 +16,7 @@ async function run() {
         commitIDs = await getCommitsFromPullRequest(octokit);
         break;
       default:
-        core.debug("Unhandled event " + github.context.eventName);
+        core.warning("Unhandled event " + github.context.eventName);
         return;
     }
     for (const id of commitIDs) {
@@ -36,9 +36,9 @@ async function run() {
       out[k] = values;
       core.setOutput(k, values);
     }
-    core.debug("Commits: ",  commitIDs);
-    core.debug("Output: ");
-    core.debug(JSON.stringify(out, undefined, 2));
+    core.info("Commits: ",  commitIDs);
+    core.info("Output: ");
+    core.info(JSON.stringify(out, undefined, 2));
   } catch (error) {
     core.setFailed(error.message);
   }
